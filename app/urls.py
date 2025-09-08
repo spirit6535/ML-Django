@@ -10,6 +10,7 @@ urlpatterns = [
     path('register/', auth_views.register_view, name='register'),
     path('profile/', profile_views.profile_view, name='profile'),
     path('add_news/', news_views.add_news, name='add_news'),
-    path('upload_analysis/', analysis_views.upload_analysis, name='upload_analysis')
+    path('upload_analysis/', analysis_views.upload_analysis, name='upload_analysis'),
+    path('edit_news/<int:news_id>/', news_views.edit_news, name='edit_news'),
+    path('delete_news/<int:news_id>/', news_views.delete_news, name='delete_news'),
 ]
-

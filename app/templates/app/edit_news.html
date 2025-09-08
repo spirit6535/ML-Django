@@ -10,8 +10,8 @@
 {% block content %}
 <div class="container">
   <div class="form-container">
-    <h2>Добавить новость</h2>
-    <form method="post" enctype="multipart/form-data" novalidate>  <!-- Добавляем enctype для загрузки файлов -->
+    <h2>Редактировать новость</h2>
+    <form method="post" enctype="multipart/form-data" novalidate>
       {% csrf_token %}
       {{ form.non_field_errors }}
 
@@ -39,8 +39,8 @@
         {% endif %}
       </div>
 
-      <button type="submit" class="btn btn-primary">Добавить новость</button>
-      <a href="{% url 'app:index' %}" class="btn" style="margin-left: 10px;">На главную</a>
+      <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+      <a href="{% url 'app:index' %}" class="btn" style="margin-left: 10px;">Отмена</a>
     </form>
   </div>
 </div>

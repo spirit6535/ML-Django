@@ -1,6 +1,6 @@
 {% extends 'app/base.html' %}
-
 {% load static %}
+
 <head>
     {% block extra_css %}
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
@@ -21,8 +21,18 @@
     {% for news in news_list %}
       <div class="card">
         <h3>{{ news.title }}</h3>
-        <small class="text-muted">{{ news.created_at|date:"d.m.Y" }}</small>
+        <small class="text-muted">{{ news.created_at|date:"d.m.Y" }} | Автор: {{ news.author.username }}</small>
+        {% if news.image %}
+          <img src="{{ news.image.url }}" alt="{{ news.title }}" class="news-image" style="max-width: 100%; height: auto; margin: 15px 0; border-radius: 8px;">
+        {% endif %}
         <p>{{ news.content }}</p>
+
+        {% if user == news.author %}  <!-- Показываем кнопки только автору -->
+          <div class="news-actions">
+            <a href="{% url 'app:edit_news' news.id %}" class="btn btn-warning">Редактировать</a>
+            <a href="{% url 'app:delete_news' news.id %}" class="btn btn-danger">Удалить</a>
+          </div>
+        {% endif %}
       </div>
     {% empty %}
       <div class="card">

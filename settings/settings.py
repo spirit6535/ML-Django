@@ -88,6 +88,11 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
+
+MEDIA_URL = '/media/'  # URL для доступа к медиафайлам
+MEDIA_ROOT = BASE_DIR / 'media'  # Папка для хранения медиафайлов
+
+
 # Статические файлы (CSS, JS, изображения)
 STATIC_URL = '/static/'
 
@@ -111,4 +116,3 @@ MEDIA_ROOT = BASE_DIR / 'media'
 LOGIN_URL = '/login/'  # Путь, куда перенаправляются незалогиненные пользователи
 
 SECRET_KEY = 'django-insecure-9x*4@#your$secret!key12345$)'
-
